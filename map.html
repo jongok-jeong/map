@@ -9,12 +9,24 @@
   <div id="map" style="width:500%; height:400vh;"></div>
 
   <script>
-    var mapContainer = document.getElementById('map');
-    var mapOption = {
-      center: new kakao.maps.LatLng(35.158443, 126.795482),
+  var map;
+  window.onload = function () {
+    var container = document.getElementById('map');
+    var options = {
+      center: new kakao.maps.LatLng(37.5665, 126.9780),
       level: 3
     };
-    var map = new kakao.maps.Map(mapContainer, mapOption);
-  </script>
+    map = new kakao.maps.Map(container, options);
+  };
+
+  function addMarker(lat, lng, title) {
+    var marker = new kakao.maps.Marker({
+      position: new kakao.maps.LatLng(lat, lng),
+      map: map,
+      title: title
+    });
+  }
+</script>
+
 </body>
 </html>
